@@ -5,18 +5,23 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { SimpleComponent } from './simple/simple.component';
+import { DependencyComponent } from './dependency/dependency.component';
+import { UsersService } from './dependency/user.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SimpleComponent
+    SimpleComponent,
+    DependencyComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [
+      UsersService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
