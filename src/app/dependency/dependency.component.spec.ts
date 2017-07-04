@@ -1,8 +1,8 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, fakeAsync, TestBed, tick} from '@angular/core/testing';
 import { DependencyComponent } from './dependency.component';
 import {By} from '@angular/platform-browser';
-import {UsersService} from './user.service';
 import {DebugElement} from '@angular/core';
+import {UsersService} from './user.service';
 
 describe('DependencyComponent', () => {
   let comp:    DependencyComponent;
@@ -10,19 +10,14 @@ describe('DependencyComponent', () => {
   let de:      DebugElement;
   let el:      HTMLElement;
   let rootEl:      HTMLElement;
-  let userServiceStub;
   let userService;
+  let spy;
+  const testQuote = 'Toni';
 
   beforeEach(() => {
-    // stub UserService for test purposes
-    userServiceStub = {
-      isLoggedIn: true,
-      user: { name: 'Test User'}
-    };
-
     TestBed.configureTestingModule({
       declarations: [ DependencyComponent ],
-      providers:    [ {provide: UsersService, useValue: userServiceStub } ]
+      providers:    [ UsersService ]
     });
 
     fixture = TestBed.createComponent(DependencyComponent);
@@ -32,36 +27,60 @@ describe('DependencyComponent', () => {
     // UserService from the root injector
     userService = TestBed.get(UsersService);
 
+    // Setup spy on the `getQuote` method
+    spy = spyOn(userService, 'getQuote')
+        .and.returnValue(Promise.resolve(testQuote));
+
     //  get the "welcome" element by CSS selector (e.g., by class name)
     de = fixture.debugElement.query(By.css('.welcome'));
     el = de.nativeElement;
   });
 
-  it('stub object and injected UserService should not be the same', () => {
-    expect(userServiceStub === userService).toBe(false);
-    // Changing the stub object has no effect on the injected service
-    userServiceStub.isLoggedIn = false;
-    expect(userService.isLoggedIn).toBe(true);
+  it('should not show quote before OnInit', () => {
+    expect(el.textContent).toBe('', 'nothing displayed');
+    expect(spy.calls.any()).toBe(false, 'getQuote not yet called');
   });
 
-  it('should welcome the user', () => {
+  it('should still not show quote after component initialized', () => {
     fixture.detectChanges();
-    const content = el.textContent;
-    expect(content).toContain('Welcome', '"Welcome ..."');
-    expect(content).toContain('Test User', 'expected name');
+    // getQuote service is async => still has not returned with quote
+    expect(el.textContent).toBe('', 'no quote yet');
+    expect(spy.calls.any()).toBe(true, 'getQuote called');
   });
 
-  it('should welcome "Bubba"', () => {
-    userService.user.name = 'Bubba'; // welcome message hasn't been shown yet
+  it('should show quote after getQuote promise (async)', async(() => {
     fixture.detectChanges();
-    expect(el.textContent).toContain('Bubba');
+
+    fixture.whenStable().then(() => { // wait for async getQuote
+      fixture.detectChanges();        // update view with quote
+      expect(el.textContent).toBe(testQuote);
+    });
+  }));
+
+  it('should show quote after getQuote promise (fakeAsync)', fakeAsync(() => {
+    fixture.detectChanges();
+    tick();                  // wait for async getQuote
+    fixture.detectChanges(); // update view with quote
+    expect(el.textContent).toBe(testQuote);
+  }));
+
+  it('should show quote after getQuote promise (done)', (done: any) => {
+    fixture.detectChanges();
+    // get the spy promise and wait for it to resolve
+    spy.calls.mostRecent().returnValue.then(() => {
+      fixture.detectChanges(); // update view with quote
+      expect(el.textContent).toBe(testQuote);
+      done();
+    });
   });
 
-  it('should request login if not logged in', () => {
-    userService.isLoggedIn = false; // welcome message hasn't been shown yet
-    fixture.detectChanges();
-    const content = el.textContent;
-    expect(content).not.toContain('Welcome', 'not welcomed');
-    expect(content).toMatch(/log in/i, '"log in"');
+  it('test real http request (done)', (done: any) => {
+    // get the spy promise and wait for it to resolve
+    comp.userService.getQuote().then(
+        (a) => {
+          expect(testQuote).toBe(a);
+          done();
+        }
+    );
   });
 });

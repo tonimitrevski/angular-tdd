@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { SimpleComponent } from './simple/simple.component';
 import { DependencyComponent } from './dependency/dependency.component';
 import { UsersService } from './dependency/user.service';
+import { InputAndOutputComponent } from './input-and-output/input-and-output.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SimpleComponent,
-    DependencyComponent
+    DependencyComponent,
+    InputAndOutputComponent
   ],
   imports: [
     BrowserModule,

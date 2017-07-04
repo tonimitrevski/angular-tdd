@@ -6,7 +6,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 1. Simple test
 You should go to in "src/app/simple" folder
-2. Test with dependency
+2. Test with dependency with async method
 You should go to in "src/app/dependency" folder
 
 ## Development server
