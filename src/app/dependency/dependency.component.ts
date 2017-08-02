@@ -7,13 +7,11 @@ import {UsersService} from './user.service';
   styleUrls: ['./dependency.component.css']
 })
 export class DependencyComponent implements OnInit {
-  welcome = '';
-  constructor(private userService: UsersService) { }
+  quote: any = '';
+  constructor(public userService: UsersService) { }
 
   ngOnInit(): void {
-    this.welcome = this.userService.isLoggedIn ?
-        'Welcome, ' + this.userService.user.name :
-        'Please log in.';
+    this.userService.getQuote().then(quote => this.quote = quote);
   }
 
 }

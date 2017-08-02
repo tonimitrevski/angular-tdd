@@ -5,6 +5,13 @@ import {Injectable} from '@angular/core';
 
 @Injectable()
 export class UsersService {
-    isLoggedIn: true;
-    user: { name: 'Test User'};
+    public isLoggedIn = true;
+    public user: { name: 'Test User'};
+
+
+    getQuote() {
+        return new Promise((resolve, reject) => {
+            resolve('Toni');
+        });
+    }
 }

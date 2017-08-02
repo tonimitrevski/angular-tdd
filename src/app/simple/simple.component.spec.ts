@@ -3,7 +3,7 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 import {SimpleComponent} from './simple.component';
 
-describe('BannerComponent (templateUrl)', () => {
+describe('SimpleComponent', () => {
 
   let comp:    SimpleComponent;
   let fixture: ComponentFixture<SimpleComponent>;
