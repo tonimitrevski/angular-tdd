@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
-import {SimpleComponent} from "./simple.component";
+import {SimpleComponent} from './simple.component';
 
 describe('BannerComponent (templateUrl)', () => {
 
@@ -9,7 +9,7 @@ describe('BannerComponent (templateUrl)', () => {
   let fixture: ComponentFixture<SimpleComponent>;
   let de:      DebugElement;
   let el:      HTMLElement;
-  let rootEl:      HTMLElement;
+  let rootEl:  HTMLElement;
 
   // async beforeEach
   beforeEach(async(() => {
