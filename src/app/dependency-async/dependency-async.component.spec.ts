@@ -15,14 +15,14 @@ describe('BannerComponent (templateUrl)', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [ DependencyAsyncComponent ],
-      providers:    [ TwainService ],
+      providers:    [ twainService ],
     });
 
     fixture = TestBed.createComponent(DependencyAsyncComponent);
     comp    = fixture.componentInstance;
 
     // TwainService actually injected into the component
-    twainService = fixture.debugElement.injector.get(TwainService);
+    twainService = fixture.debugElement.injector.get(twainService);
 
     // Setup spy on the `getQuote` method
     spy = spyOn(twainService, 'getQuote')
