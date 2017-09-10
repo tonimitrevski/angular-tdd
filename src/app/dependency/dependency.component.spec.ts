@@ -77,8 +77,8 @@ describe('DependencyComponent', () => {
   it('test real http request (done)', (done: any) => {
     // get the spy promise and wait for it to resolve
     comp.userService.getQuote().then(
-        (a) => {
-          expect(testQuote).toBe(a);
+        (a: any) => {
+          expect(testQuote).toEqual(a);
           done();
         }
     );
