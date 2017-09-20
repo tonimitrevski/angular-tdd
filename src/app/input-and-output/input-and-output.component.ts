@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from "@angular/router";
+import {UsersService} from "../dependency/user.service";
+
 
 @Component({
   selector: 'app-input-and-output',
@@ -7,7 +10,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InputAndOutputComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+      private userService: UsersService) {
+  }
 
   ngOnInit() {
   }

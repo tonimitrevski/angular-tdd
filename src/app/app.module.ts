@@ -8,13 +8,17 @@ import { SimpleComponent } from './simple/simple.component';
 import { DependencyComponent } from './dependency/dependency.component';
 import { UsersService } from './dependency/user.service';
 import { DependencyAsyncComponent } from './dependency-async/dependency-async.component';
+import {DashboardHeroComponent} from './input-and-output/dashboard-hero/dashboard-hero.component';
+import {InputAndOutputComponent} from './input-and-output/input-and-output.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SimpleComponent,
     DependencyComponent,
-    DependencyAsyncComponent
+    DependencyAsyncComponent,
+    InputAndOutputComponent,
+    DashboardHeroComponent
   ],
   imports: [
     BrowserModule,
