@@ -1,8 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import {DashboardHeroComponent} from './dashboard-hero.component';
-import {By} from "@angular/platform-browser";
-import {Hero} from "../hero";
-import {click} from "../../helpers/clickHelper";
+import {By} from '@angular/platform-browser';
+import {Hero} from '../hero';
+import {click} from '../../helpers/clickHelper';
 
 describe('Dashboard Hero', () => {
   let component: DashboardHeroComponent;
