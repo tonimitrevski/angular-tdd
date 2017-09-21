@@ -1,7 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { InputAndOutputComponent } from './input-and-output.component';
 import {DashboardHeroComponent} from './dashboard-hero/dashboard-hero.component';
-import {UsersService} from "../dependency/user.service";
+import {UsersService} from '../dependency/user.service';
+import {DashboardHeroTestHostComponent} from './dashboard-hero-test-host-component/dashboard-hero-test-host-com.component';
 
 
 describe('InputAndOutputComponent', () => {
@@ -11,7 +12,7 @@ describe('InputAndOutputComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-        declarations: [ InputAndOutputComponent, DashboardHeroComponent ],
+        declarations: [ InputAndOutputComponent, DashboardHeroComponent, DashboardHeroTestHostComponent ],
         providers: [ UsersService ]
     })
     .compileComponents();
