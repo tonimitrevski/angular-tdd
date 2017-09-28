@@ -2,7 +2,7 @@ import {async, ComponentFixture, inject, TestBed} from '@angular/core/testing';
 import { RouterComponentComponent} from './router-component.component';
 import {By} from '@angular/platform-browser';
 import {ActivatedRoute,Router} from '@angular/router';
-import {Hero} from '../input-and-output/hero';
+import {Hero} from '../model/hero';
 import {UsersService} from '../dependency/user.service';
 import {click} from '../helpers/clickHelper';
 import {ActivatedRouteStub} from '../helpers/router-stubs';
@@ -22,8 +22,7 @@ describe('Router Component', () => {
       declarations: [ RouterComponentComponent ],
       providers: [
           UsersService,
-          {provide: Router, useClass: RouterStub },
-          {provide: ActivatedRoute , useClass: ActivatedRouteStub }
+          {provide: Router, useClass: RouterStub }
       ]
     })
     .compileComponents(); // compile template and css
