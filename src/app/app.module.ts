@@ -11,7 +11,8 @@ import { DependencyAsyncComponent } from './dependency-async/dependency-async.co
 import {DashboardHeroComponent} from './input-and-output/dashboard-hero/dashboard-hero.component';
 import {InputAndOutputComponent} from './input-and-output/input-and-output.component';
 import {DashboardHeroTestHostComponent} from './input-and-output/dashboard-hero-test-host-component/dashboard-hero-test-host-com.component';
-import {RouterComponentComponent} from "./router-component/router-component.component";
+import {RouterComponentComponent} from './router-component/router-component.component';
+import {HeroDetailComponent} from './hero/hero-detail.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {RouterComponentComponent} from "./router-component/router-component.comp
       InputAndOutputComponent,
       DashboardHeroComponent,
       DashboardHeroTestHostComponent,
-      RouterComponentComponent
+      RouterComponentComponent,
+      HeroDetailComponent
   ],
   imports: [
       BrowserModule,

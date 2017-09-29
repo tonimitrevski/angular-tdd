@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import {DashboardHeroComponent} from './dashboard-hero.component';
 import {By} from '@angular/platform-browser';
-import {Hero} from '../hero';
+import {Hero} from '../../model/hero';
 import {click} from '../../helpers/clickHelper';
 
 describe('Dashboard Hero', () => {

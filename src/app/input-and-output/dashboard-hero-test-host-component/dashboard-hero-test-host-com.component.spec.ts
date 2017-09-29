@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import {By} from '@angular/platform-browser';
-import {Hero} from '../hero';
+import {Hero} from '../../model/hero';
 import {click} from '../../helpers/clickHelper';
 import {DashboardHeroTestHostComponent} from './dashboard-hero-test-host-com.component';
 import {Component} from '@angular/core';
