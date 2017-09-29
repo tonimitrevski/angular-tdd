@@ -13,6 +13,7 @@ import {InputAndOutputComponent} from './input-and-output/input-and-output.compo
 import {DashboardHeroTestHostComponent} from './input-and-output/dashboard-hero-test-host-component/dashboard-hero-test-host-com.component';
 import {RouterComponentComponent} from './router-component/router-component.component';
 import {HeroDetailComponent} from './hero/hero-detail.component';
+import {AppRoutingModule} from "./app-routing.module";
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import {HeroDetailComponent} from './hero/hero-detail.component';
   imports: [
       BrowserModule,
       FormsModule,
-      HttpModule
+      HttpModule,
+      AppRoutingModule
   ],
   providers: [
       UsersService
