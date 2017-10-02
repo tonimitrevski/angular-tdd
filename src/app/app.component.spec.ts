@@ -1,10 +1,9 @@
 import {TestBed, async, ComponentFixture} from '@angular/core/testing';
 
 import { AppComponent } from './app.component';
-import {BannerComponent} from "./banner.component";
-import {RouterLinkStubDirective, RouterOutletStubComponent} from "../testing/router-stubs";
-import {Component, DebugElement, NO_ERRORS_SCHEMA} from "@angular/core";
-import {By} from "@angular/platform-browser";
+import {RouterLinkStubDirective, RouterOutletStubComponent} from '../testing/router-stubs';
+import {Component, DebugElement, NO_ERRORS_SCHEMA} from '@angular/core';
+import {By} from '@angular/platform-browser';
 let comp:    AppComponent;
 let app:    AppComponent;
 let fixture: ComponentFixture<AppComponent>;
