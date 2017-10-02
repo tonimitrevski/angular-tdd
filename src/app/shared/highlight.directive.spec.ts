@@ -12,19 +12,19 @@ import { newEvent }           from '../../testing';
   <h2>No Highlight</h2>
   <input #box [highlight]="box.value" value="cyan"/>`
 })
-class TestComponent { }
+class TestHighlightComponent { }
 
 describe('HighlightDirective', () => {
 
-  let fixture: ComponentFixture<TestComponent>;
+  let fixture: ComponentFixture<TestHighlightComponent>;
   let des: DebugElement[];  // the three elements w/ the directive
   let bareH2: DebugElement; // the <h2> w/o the directive
 
   beforeEach(() => {
     fixture = TestBed.configureTestingModule({
-      declarations: [ HighlightDirective, TestComponent ]
+      declarations: [ HighlightDirective, TestHighlightComponent ]
     })
-    .createComponent(TestComponent);
+    .createComponent(TestHighlightComponent);
 
     fixture.detectChanges(); // initial binding
 
@@ -68,15 +68,6 @@ describe('HighlightDirective', () => {
   it('bare <h2> should not have a customProperty', () => {
     expect(bareH2.properties['customProperty']).toBeUndefined();
   });
-
-  // Removed on 12/02/2016 when ceased public discussion of the `Renderer`. Revive in future?
-  // // customProperty tests
-  // it('all highlighted elements should have a true customProperty', () => {
-  //   const allTrue = des.map(de => !!de.properties['customProperty']).every(v => v === true);
-  //   expect(allTrue).toBe(true);
-  // });
-
-  // injected directive
   // attached HighlightDirective can be injected
   it('can inject `HighlightDirective` in 1st <h2>', () => {
     const dir = des[0].injector.get(HighlightDirective);
