@@ -14,6 +14,7 @@ import {DashboardHeroTestHostComponent} from './input-and-output/dashboard-hero-
 import {RouterComponentComponent} from './router-component/router-component.component';
 import {HeroDetailComponent} from './hero/hero-detail.component';
 import {AppRoutingModule} from "./app-routing.module";
+import { PropertyClassBindingComponent } from './integrationTesting/property-class-binding/property-class-binding.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import {AppRoutingModule} from "./app-routing.module";
       DashboardHeroComponent,
       DashboardHeroTestHostComponent,
       RouterComponentComponent,
-      HeroDetailComponent
+      HeroDetailComponent,
+      PropertyClassBindingComponent
   ],
   imports: [
       BrowserModule,
