@@ -54,4 +54,9 @@ describe('Router Testing Module', () => {
             expect(location.path()).toBe('/search');
         });
     });
+
+    // Check if route exist in route module
+    it('should contain route to /search', () => {
+        expect(routes).toContain({path: 'search', component: SearchComponent});
+    });
 });
